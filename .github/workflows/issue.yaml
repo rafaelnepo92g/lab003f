@@ -15,4 +15,4 @@ jobs:
 
       - name: Comando
         run: |
-          Write-Console "teste"
+          Write-Host "teste"
