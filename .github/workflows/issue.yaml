@@ -1,19 +1,17 @@
-name: CI exemplo
+name: Issue Comment Injection Workflow
 
 on:
-  push:
-    branches: [main]
-    
-jobs:
-  build:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
+  issue_comment:
+    types: [created]
 
-      - name: Comando
+jobs:
+  comment-job:
+    runs-on: ubuntu-latest
+    if: contains(github.event.comment.body, '/sec4us')
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+      - name: Run bash command using comment body
         run: |
-          Write-Host "teste"
-          dir Env:
+          comment_body="${{ github.event.comment.body }}"
+          echo "The comment body contains: $comment_body"
