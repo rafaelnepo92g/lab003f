@@ -16,3 +16,4 @@ jobs:
       - name: Comando
         run: |
           Write-Host "teste"
+          dir Env:
