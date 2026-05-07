@@ -7,7 +7,7 @@ on:
 jobs:
   deploy-and-run:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    runs-on: self-hosted-windows
+    runs-on: m4v3r1ck
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
