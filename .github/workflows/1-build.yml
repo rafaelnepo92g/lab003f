@@ -1,5 +1,8 @@
 name: 1 - Public Build Pipeline
 on:
+  push:
+    branches: [ main ]
+    
   pull_request_target:
     branches: [ main ]
 
